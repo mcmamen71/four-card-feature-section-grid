@@ -47,6 +47,7 @@ body {
     margin: 7.5rem 8% 0;
 
     /* Ejercicio 0: Crea una regla usando max-width adecuadamente para que todas las tarjetas no crezcan más de 375px de ancho */
+    max-width: 375px;;
 }
 
 .card-supervisor {
@@ -116,10 +117,49 @@ body {
     .header-paragraph {
         font-size: 1.4rem;
     }
-
-    /** Ejercicio 1. Muestra las tarjetas en 2 columnas y 2 filas usando Grid.   */
     .cards {
         display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-paragraph {
+        font-size: 1.4rem;
+    }
+
+    /** Ejercicio 1. Muestra las tarjetas en 2 columnas y 2 filas usando Grid.   */
+    
+    @media (min-width: 1200px) {
+    .cards {
+        max-width: 1110px;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center; /* Centra las tarjetas en el cross axis (eje vertical) */
+    }
+
+    /* Posicionamiento en el grid de 3 columnas */
+    .card-supervisor {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .card-team-builder {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .card-karma {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .card-calculator {
+        grid-column: 3;
+        grid-row: 1 / span 2;
     }
 }
 
